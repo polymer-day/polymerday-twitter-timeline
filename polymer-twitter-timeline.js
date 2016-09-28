@@ -76,6 +76,36 @@
       twttr.ready(function() {
         this._createWidget();
       }.bind(this));
+
+
+      /** Begin **/
+      /** Code to manage the custom CSS inside the iframe of twitter widget **
+       ** You can fill the css variable with css properties **/
+      var observer,
+        css = '';
+
+      if (css !== '') {
+        observer = new MutationObserver(domMutationHandler);
+        observer.observe(this.$.timeline, { childList: true });
+      }
+
+      // CSS Style observer & handler
+      function domMutationHandler (mutations, observer) {
+        var style;
+
+        style = document.createElement('style');
+        style.type = 'text/css';
+        if (style.styleSheet) {
+          style.styleSheet.cssText = css;
+        }
+        else {
+          style.appendChild(document.createTextNode(css));
+        }
+
+        mutations[0].addedNodes[0].contentDocument.head.appendChild(style);
+        observer.disconnect();
+      }
+      //** End **/
     },
 
     /**
