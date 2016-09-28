@@ -2,12 +2,6 @@
 
 A custom polymer element for embedding a Twitter timeline (widget)
 
-## Install 
-
-```
-$ bower install --save https://github.com/emartinpi/polymer-twitter-timeline.git 
-```
-
 ## Create a [Twitter widget for searching](https://twitter.com/settings/widgets/new) and get the id which is in the snippet
 
 The id will be used as attribute in polymer element
@@ -15,6 +9,12 @@ The id will be used as attribute in polymer element
 ```html
 <polymer-twitter-timeline
             widget-id="..."></polymer-twitter-timeline>
+```
+
+## Install dependencies
+
+```
+$ bower install
 ```
 
 ## Install the Polymer-CLI
