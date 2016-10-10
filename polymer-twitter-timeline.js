@@ -82,7 +82,63 @@
       /** Code to manage the custom CSS inside the iframe of twitter widget **
        ** You can fill the css variable with css properties **/
       var observer,
-        css = '';
+        css = `
+          .timeline-Tweet {
+            position: relative;
+          }
+          .timeline-Tweet:hover {
+            background-color: inherit !important;
+          }
+          .Avatar {
+            border-radius: 50%;
+          }
+          .TweetAuthor-avatar {
+            width: 48px !important;
+            height: 48px !important;
+          }
+          .TweetAuthor-name {
+            font-size: 16px !important;
+          }
+          .timeline-Tweet-text {
+            color: #616161;
+            font-size: 16px !important;
+            line-height: 24px !important;
+            margin-left: 56px !important;
+          }
+          .timeline-Tweet-author {
+            color: #616161;
+            padding-left: 56px !important;
+          }
+          .timeline-Tweet-media {
+            display: none;
+          }
+          .timeline-TweetList-tweet:nth-child(odd) {
+            background-color: #f7fafd;
+          }
+          .timeline-TweetList-tweet:nth-child(even) {
+            background-color: #ffffff;
+          }
+          .timeline-Tweet-actions {
+            display: none;
+          }
+          .timeline-Tweet-brand {
+            display: none;
+          }
+          .TweetAuthor-screenName {
+            display: none;
+          }
+          .timeline-Tweet-metadata {
+            position: absolute;
+            top: 8px;
+            left:100%;
+            transform: translateX(-150%);
+          }
+          .timeline-Tweet-timestamp {
+            color: #616161 !important;
+          }
+          .timeline-Tweet:hover .timeline-Tweet-timestamp {
+            color: #616161 !important;
+          }`;
 
       if (css !== '') {
         observer = new MutationObserver(domMutationHandler);
