@@ -158,7 +158,11 @@
           style.appendChild(document.createTextNode(css));
         }
 
-        mutations[0].addedNodes[0].contentDocument.head.appendChild(style);
+        //FIX firefox. setTimeout needed due to the styles were not loaded
+        setTimeout(function() {
+          mutations[0].addedNodes[0].contentDocument.head.appendChild(style);
+        }, 0);
+
         observer.disconnect();
       }
       //** End **/
