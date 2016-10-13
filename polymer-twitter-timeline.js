@@ -65,6 +65,14 @@
       lang: {
         type: String,
         value: 'en'
+      },
+
+      tweetCount: {
+        type: String
+      },
+
+      _docTweeter: {
+        type: Object
       }
     },
 
@@ -73,9 +81,16 @@
         this._log(this._logf('widgetId', 'widgetId must not be undefined'));
         return;
       }
+
       twttr.ready(function() {
         this._createWidget();
+        twttr.events.bind('rendered', function (event) {
+          var counter = event.target.contentDocument.querySelectorAll('.timeline-TweetList-tweet').length;
+          this.tweetCount = counter;
+          this._docTweeter = event.target.contentDocument;
+        }.bind(this));
       }.bind(this));
+
 
 
       /** Begin **/
