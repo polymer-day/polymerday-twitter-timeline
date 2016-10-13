@@ -73,7 +73,10 @@ Example:
       <p class="title">Polymer Day on Twitter</p>
       <p class="subtitle">Use #PolymerDay or @PolymerDay so that you can show up here</p>
       <div class="action">
-        <iron-icon class="share" icon="social:share"></iron-icon>
+        <a href="https://twitter.com/intent/tweet?text=PolymerDay!+www.polymerday.com&hashtags=PolymerDay&via=PolymerDay"
+           target="_blank" style="color: inherit;">
+          <iron-icon class="share" icon="social:share"></iron-icon>
+        </a>
         <div class="counter">
           <iron-icon icon="icons:question-answer"></iron-icon>
           <p class="count-number">[[tweetCount]]</p>
