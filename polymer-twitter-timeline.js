@@ -67,12 +67,11 @@
         value: 'en'
       },
 
+      /**
+       * Number of tweets
+       */
       tweetCount: {
         type: String
-      },
-
-      _docTweeter: {
-        type: Object
       }
     },
 
@@ -84,14 +83,17 @@
 
       twttr.ready(function() {
         this._createWidget();
+        //Event rendered for observe tweets and count it
         twttr.events.bind('rendered', function (event) {
-          var counter = event.target.contentDocument.querySelectorAll('.timeline-TweetList-tweet').length;
-          this.tweetCount = counter;
-          this._docTweeter = event.target.contentDocument;
+          var tweetCountObserver = new MutationObserver(_tweetCountObserverHandler);
+          this.set('tweetCount', event.target.contentDocument.querySelectorAll('.timeline-TweetList-tweet').length);
+          tweetCountObserver.observe(event.target.contentDocument.querySelector('.timeline-TweetList'), { childList: true });
+          var ctx = this;
+          function _tweetCountObserverHandler (mutations, observer) {
+            ctx.tweetCount += mutations[0].addedNodes.length;
+          };
         }.bind(this));
       }.bind(this));
-
-
 
       /** Begin **/
       /** Code to manage the custom CSS inside the iframe of twitter widget **
@@ -161,7 +163,8 @@
       }
 
       // CSS Style observer & handler
-      function domMutationHandler (mutations, observer) {
+      function domMutationHandler(mutations, observer) {
+
         var style;
 
         style = document.createElement('style');
