@@ -1,4 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="widget-import.html">
 
 <!--
@@ -21,10 +24,66 @@ Example:
     <style>
       :host {
         display: block;
+        font-family: Roboto Condensed, sans-serif;
+        text-rendering: optimizeLegibility;
+      }
+      .wrapper {
+        background-color: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .title {
+        color: #2C5EA5;
+        font-size: 24px;
+        padding: 3% 0 0 3%;
+        font-weight: 100;
+        margin: 0%;
+      }
+      .subtitle {
+        color: #616161;
+        font-size: 16px;
+        padding: 0 0 0 3%;
+        font-weight: 100;
+      }
+      .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+      .counter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+      }
+      .count-number{
+        color: #616161;
+        font-size: 14px;
+        padding-left: 10%;
+        font-weight: 100;
+      }
+      iron-icon {
+        width: 24px;
+        height: 24px;
+        opacity: 0.5;
       }
     </style>
-
-    <div id="timeline"></div>
+    <div class="wrapper">
+      <p class="title">Polymer Day on Twitter</p>
+      <p class="subtitle">Use #PolymerDay or @PolymerDay so that you can show up here</p>
+      <div class="action">
+        <a href="https://twitter.com/intent/tweet?hashtags=PolymerDay&text=Talking about...&via=PolymerDay"
+           target="_blank" style="color: inherit;">
+          <iron-icon class="share" icon="social:share"></iron-icon>
+        </a>
+        <div class="counter">
+          <iron-icon icon="icons:question-answer"></iron-icon>
+          <p class="count-number">[[tweetCount]]</p>
+        </div>
+      </div>
+      <div id="timeline"></div>
+    </div>
 
   </template>
 
