@@ -72,6 +72,14 @@
        */
       tweetCount: {
         type: String
+      },
+
+      /**
+       * Boolean to set if component is or not visible
+       */
+      _hide: {
+        type: Boolean,
+        value: true
       }
     },
 
@@ -85,6 +93,7 @@
         this._createWidget();
         //Event rendered for observe tweets and count it
         twttr.events.bind('rendered', function (event) {
+          this.set('_hide', false);
           var tweetCountObserver = new MutationObserver(_tweetCountObserverHandler);
           this.set('tweetCount', event.target.contentDocument.querySelectorAll('.timeline-TweetList-tweet').length);
           tweetCountObserver.observe(event.target.contentDocument.querySelector('.timeline-TweetList'), { childList: true });
