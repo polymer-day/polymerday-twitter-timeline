@@ -1,11 +1,11 @@
 {
-  "name": "polymer-twitter-timeline",
+  "name": "polymerday-twitter-timeline",
   "version": "1.0.0",
   "authors": [
     "Edu Martin <emartinpicado@gmail.com>"
   ],
   "description": "A custom polymer element for embedding a Twitter timeline (widget).",
-  "main": "polymer-twitter-timeline.html",
+  "main": "polymerday-twitter-timeline.html",
   "keywords": [
     "polymer",
     "web-components",

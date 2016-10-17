@@ -1,4 +1,4 @@
-# \<polymer-twitter-timeline\>
+# \<polymerday-twitter-timeline\>
 
 A custom polymer element for embedding a Twitter timeline (widget)
 
@@ -7,8 +7,8 @@ A custom polymer element for embedding a Twitter timeline (widget)
 The id will be used as attribute in polymer element
 
 ```html
-<polymer-twitter-timeline
-            widget-id="..."></polymer-twitter-timeline>
+<polymerday-twitter-timeline
+            widget-id="..."></polymerday-twitter-timeline>
 ```
 
 ## Install dependencies
